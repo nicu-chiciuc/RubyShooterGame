@@ -2,9 +2,10 @@
 FROM ruby:2.7
 
 # Install necessary libraries for Ruby2d 
-RUN apt-get update -qq && apt-get install -y libsdl2-dev libsdl2-ttf-dev \
-    libpango1.0-dev libgl1-mesa-dev libfreeimage-dev \
-    libopenal-dev libsndfile-dev
+RUN apt-get update -qq && \
+    apt-get install -y libsdl2-dev libsdl2-ttf-dev libpango1.0-dev \
+    libgl1-mesa-dev libfreeimage-dev libopenal-dev libsndfile-dev \
+    libsdl2-image-dev libsdl2-mixer-dev
 
 # Set working directory in the container to /app
 WORKDIR /app
@@ -15,5 +16,7 @@ COPY . /app/
 # Install any needed packages specified in Gemfile.lock (if it exists)
 RUN if [ -f Gemfile.lock ]; then bundle install; fi
 
+# RUN gem install ruby2d
+
 # Run game.rb when the container launches
-CMD ["ruby", "game.rb"]
+# CMD ["ruby", "game.rb"]
