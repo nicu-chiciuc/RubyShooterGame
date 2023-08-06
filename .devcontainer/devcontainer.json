@@ -1,0 +1,24 @@
+// Copied from https://github.com/xtruder/nix-devcontainer/blob/main/.devcontainer/devcontainer.json
+
+
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
+// https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
+{
+  "name": "nix-devcontainer",
+  "dockerFile": "Dockerfile",
+  "context": "..",
+  
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"arrterian.nix-env-selector",
+		"jnoortheen.nix-ide",
+		"fsevenm.run-it-on",
+		"ms-azuretools.vscode-docker",
+		"yzhang.markdown-all-in-one",
+		"eamodio.gitlens"
+	]
+    }
+  }
+}
