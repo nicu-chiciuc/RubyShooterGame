@@ -1,12 +1,12 @@
 require 'ruby2d'
 require_relative 'custom_figure'
 
-set background: 'navy'
+set background: 'white'
 set title: 'Shot me'
 set width: 1200
 set height: 800
 
-message = Text.new('Click to begin')
+message = Text.new('Click to begin', x: 20, y: 20, color: 'black')
 game_started = false
 figure_group = nil
 start_time = nil
@@ -20,7 +20,7 @@ on :mouse_down do |event|
     figure_group.each do |figure_part|
       if figure_part.contains?(event.x, event.y)
         duration = ((Time.now - start_time) * 1000).round
-        message = Text.new("You took: #{duration} milliseconds!", color: 'white')
+        message = Text.new("We'll done, You took: #{duration} milliseconds. Click to begin", x: 20, y: 20, color: 'black')
         figure_group.each(&:remove)
         game_started = false
       end
